@@ -2,6 +2,26 @@
 
 A minimal Manifest V3 Chrome extension that lets you interactively pick DOM elements on any webpage and blur them in real-time with DevTools-inspect style interaction. Perfect for privacy, presentations, and screenshots.
 
+## 📥 Quick Install
+
+### Method 1: Install from Source (Recommended)
+```bash
+# Clone the repository
+git clone https://github.com/mariagorskikh/blurry.git
+cd blurry
+
+# Install in Chrome
+1. Open chrome://extensions/
+2. Enable "Developer mode" (top-right)
+3. Click "Load unpacked"
+4. Select the blurry folder
+```
+
+### Method 2: Download Release
+1. Download [live-redactor-v1.0.zip](https://github.com/mariagorskikh/blurry/releases)
+2. Unzip the file
+3. Follow steps above to load unpacked
+
 ## ✨ Features
 
 - **Interactive Element Picker**: Click to select any element on the page (DevTools-inspect style)
