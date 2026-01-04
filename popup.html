@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Redactor</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      width: 320px;
+      min-height: 240px;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+      font-size: 13px;
+      color: rgba(0, 0, 0, 0.85);
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(40px) saturate(180%);
+      -webkit-backdrop-filter: blur(40px) saturate(180%);
+      overflow: hidden;
+    }
+    
+    .container {
+      padding: 20px;
+    }
+    
+    .header {
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+    }
+    
+    h1 {
+      font-size: 17px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: rgba(0, 0, 0, 0.85);
+      margin-bottom: 4px;
+    }
+    
+    .subtitle {
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.5);
+      letter-spacing: -0.01em;
+    }
+    
+    .status {
+      background: rgba(0, 0, 0, 0.03);
+      border: 0.5px solid rgba(0, 0, 0, 0.06);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+    }
+    
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    
+    .status-row:last-child {
+      margin-bottom: 0;
+    }
+    
+    .status-label {
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.6);
+      letter-spacing: -0.01em;
+    }
+    
+    .status-value {
+      font-weight: 500;
+      font-size: 13px;
+      color: rgba(0, 0, 0, 0.85);
+      letter-spacing: -0.01em;
+    }
+    
+    .status-value.active {
+      color: rgba(0, 0, 0, 0.85);
+    }
+    
+    .status-value.inactive {
+      color: rgba(0, 0, 0, 0.4);
+    }
+    
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    button {
+      background: rgba(0, 0, 0, 0.04);
+      border: none;
+      border-radius: 10px;
+      padding: 11px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      color: rgba(0, 0, 0, 0.85);
+      letter-spacing: -0.01em;
+      text-align: center;
+    }
+    
+    button:hover {
+      background: rgba(0, 0, 0, 0.08);
+      transform: scale(0.98);
+    }
+    
+    button:active {
+      background: rgba(0, 0, 0, 0.12);
+      transform: scale(0.96);
+    }
+    
+    button:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    button.primary {
+      background: rgba(0, 0, 0, 0.85);
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 500;
+    }
+    
+    button.primary:hover {
+      background: rgba(0, 0, 0, 0.92);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    button.primary.active {
+      background: rgba(0, 0, 0, 0.92);
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+    }
+    
+    button.primary.active:hover {
+      background: rgba(0, 0, 0, 0.96);
+    }
+    
+    .footer {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 0.5px solid rgba(0, 0, 0, 0.08);
+      text-align: center;
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.4);
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+    }
+    
+    .footer p {
+      margin: 4px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Live Redactor</h1>
+      <p class="subtitle">Interactive element blur tool</p>
+    </div>
+    
+    <div class="status">
+      <div class="status-row">
+        <span class="status-label">Pick Mode</span>
+        <span class="status-value" id="pick-mode-status">Unknown</span>
+      </div>
+      <div class="status-row">
+        <span class="status-label">Redactions</span>
+        <span class="status-value" id="rule-count">-</span>
+      </div>
+    </div>
+    
+    <div class="controls">
+      <button id="toggle-pick-btn" class="primary">
+        Start
+      </button>
+      <button id="undo-btn">
+        Undo
+      </button>
+      <button id="clear-btn">
+        Clear All
+      </button>
+    </div>
+    
+    <div class="footer">
+      <p>Use toolbar on page for best experience</p>
+      <p>Press ESC to exit pick mode</p>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
+

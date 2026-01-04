@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Redactor Test Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      padding: 40px;
+      background: #f5f5f5;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      color: #ff7a00;
+      margin-bottom: 20px;
+    }
+    
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 20px;
+      margin: 20px 0;
+      background: #fafafa;
+    }
+    
+    .profile {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      margin: 20px 0;
+      padding: 15px;
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+    }
+    
+    .avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 24px;
+    }
+    
+    .profile-info {
+      flex: 1;
+    }
+    
+    .name {
+      font-weight: 600;
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 4px;
+    }
+    
+    .email {
+      color: #666;
+      font-size: 14px;
+    }
+    
+    .sensitive-data {
+      background: #fff3cd;
+      border: 2px dashed #ffc107;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 6px;
+    }
+    
+    .secret-message {
+      background: #f8d7da;
+      color: #721c24;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+    }
+    
+    .instructions {
+      background: #d1ecf1;
+      border-left: 4px solid #0c5460;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    
+    .instructions h2 {
+      color: #0c5460;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+    
+    .instructions ol {
+      margin-left: 20px;
+    }
+    
+    .instructions li {
+      margin: 8px 0;
+    }
+    
+    button {
+      background: #ff7a00;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 5px;
+    }
+    
+    button:hover {
+      background: #e66d00;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎯 Live Redactor Test Page</h1>
+    
+    <div class="instructions">
+      <h2>Live Redactor - Testing Instructions</h2>
+      <ol>
+        <li>Look for the <strong>Live Redactor toolbar</strong> in the top-right corner (liquid glass design)</li>
+        <li>Click <strong>"–"</strong> in the header to minimize toolbar (click <strong>"□"</strong> to restore)</li>
+        <li>Click <strong>"Start"</strong> to enter pick mode (button changes to "Stop")</li>
+        <li>Hover over elements to see <strong>subtle outline</strong></li>
+        <li>Click any element → it <strong>blurs immediately</strong></li>
+        <li>Click a blurred element → it <strong>unblurs immediately</strong></li>
+        <li>Click <strong>"Stop"</strong> or press <strong>ESC</strong> to exit pick mode</li>
+        <li>Use <strong>"Undo"</strong> to remove the last blur</li>
+        <li>Use <strong>"Clear All"</strong> to remove all blurs</li>
+        <li>Refresh the page - blurs persist</li>
+      </ol>
+      <p><strong>Minimal Design Philosophy</strong></p>
+      <ul>
+        <li>Click normal element → blurs instantly</li>
+        <li>Click blurred element → unblurs instantly</li>
+        <li>Simple toggle - one click does everything</li>
+        <li>Clean, transparent interface that stays out of your way</li>
+      </ul>
+    </div>
+    
+    <div class="card">
+      <h2>Sample User Profiles</h2>
+      <p>Try blurring the names, emails, or avatars below:</p>
+      
+      <div class="profile">
+        <div class="avatar">JD</div>
+        <div class="profile-info">
+          <div class="name">John Doe</div>
+          <div class="email">john.doe@example.com</div>
+        </div>
+      </div>
+      
+      <div class="profile">
+        <div class="avatar">AS</div>
+        <div class="profile-info">
+          <div class="name">Alice Smith</div>
+          <div class="email">alice.smith@company.com</div>
+        </div>
+      </div>
+      
+      <div class="profile">
+        <div class="avatar">BJ</div>
+        <div class="profile-info">
+          <div class="name">Bob Johnson</div>
+          <div class="email">bob.j@privatemail.com</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="sensitive-data">
+      <h3>⚠️ Sensitive Information</h3>
+      <p>Credit Card: 4532-1234-5678-9010</p>
+      <p>SSN: 123-45-6789</p>
+      <p>API Key: your_api_key_here_xxxxx</p>
+    </div>
+    
+    <div class="secret-message">
+      <strong>SECRET:</strong> The password is "hunter2" - try blurring this!
+    </div>
+    
+    <div class="card">
+      <h3>Interactive Elements</h3>
+      <button>Button 1</button>
+      <button>Button 2</button>
+      <button>Button 3</button>
+      <p style="margin-top: 15px;">You can blur buttons, text, or entire cards!</p>
+    </div>
+    
+    <div class="card">
+      <h3>Nested Content</h3>
+      <div style="padding: 10px; background: white; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+        <span style="color: #007bff; font-weight: 600;">Username:</span>
+        <span>mariagorskikh</span>
+      </div>
+      <div style="padding: 10px; background: white; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+        <span style="color: #007bff; font-weight: 600;">Location:</span>
+        <span>San Francisco, CA</span>
+      </div>
+    </div>
+    
+    <div style="margin-top: 30px; padding: 20px; background: #e8f5e9; border-radius: 6px;">
+      <h3 style="color: #2e7d32;">✓ What to Check:</h3>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>Toolbar appears in top-right corner</li>
+        <li>Orange outline follows your mouse in pick mode</li>
+        <li>Elements blur immediately when clicked</li>
+        <li>Blur persists after page refresh</li>
+        <li>Undo/Clear buttons work</li>
+        <li>Export copies JSON to clipboard</li>
+      </ul>
+    </div>
+  </div>
+  
+  <script>
+    console.log('Test page loaded. Extension should inject toolbar.');
+    console.log('Open DevTools Console (F12) to see Live Redactor logs.');
+    
+    // Log extension detection
+    setTimeout(() => {
+      const toolbar = document.getElementById('lr-toolbar');
+      if (toolbar) {
+        console.log('✓ Live Redactor toolbar detected!');
+      } else {
+        console.warn('✗ Toolbar not found. Extension may not be loaded.');
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
+
